@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Page</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Title & Authors -->
+<section id="title-authors" class="card">
+  <!-- <h1>Motion<span class="abbr-letter" style="color:#4285f4">D</span><span class="abbr-letter" style="color:#ea4335">D</span><span class="abbr-letter" style="color:#fbbc05">M</span>
+    : Motion Generation and Understanding via 
+    <span class="abbr-letter" style="color:#4285f4">D</span>iscrete 
+    <span class="abbr-letter" style="color:#ea4335">D</span>iffusion 
+    <span class="abbr-letter" style="color:#fbbc05">M</span>odel</h1> -->
+    <h1>
+      <span style="color:#3B82F6">Di</span><span style="color:#8B5CF6">Mo</span>
+      <span style="color:#60A5FA">Discrete Diffusion</span> Modeling for
+      <span style="color:#ba75fa">Motion</span> Generation and Understanding
+    </h1>
+  <div class="paper-links">
+   <a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank" class="paper-link">
+     arXiv
+   </a>
+  </div>
+  <p class="authors">
+  Ning Zhang<sup>1</sup>, Zhengyu Li<sup>1</sup>, Kwong Weng Loh<sup>1</sup>, Mingxi Xu<sup>1</sup>, Qi Wang<sup>1</sup>, Zhengyu Wen<sup>1</sup><br>
+  Xiaoyu He<sup>1</sup>, Wei Zhao<sup>1</sup>, Kehong Gong<sup>2</sup>, Mingyuan Zhang<sup>1</sup>
+  </p>
+  <p class="affiliations">
+    <sup>1</sup>Huawei Central Media Technology Institute &nbsp;&nbsp;
+    <sup>2</sup>Huawei Technologies Co., Ltd.
+  </p>
+  <!-- <p class="authors">Author1, Author2, Author3</p> -->
+</section>
+
+
+<!-- Teaser -->
+<!-- <section id="teaser" class="card">
+  <img src="assets/teaser.png" class="teaser-img">
+</section> -->
+
+<!-- Abstract -->
+<section id="abstract" class="card">
+  <h2>Abstract</h2>
+  <p>We present <strong>DiMo</strong>, a <strong>diffusion-LLM</strong> framework for bidirectional text-motion understanding and generation. Unlike GPT-style autoregressive approaches that tokenize motion and decode sequentially, DiMo performs multi-step parallel denoising, <strong>unifying</strong> Text-to-Motion(T2M), Motion-to-Text(M2T), and text-free Motion-to-Motion(M2M) within a <strong>single model</strong>. This decoding paradigm naturally enables a quality-latency trade-off at inference. On HumanML3D, our method achieves competitive T2M/M2T results against strong baselines. Beside T2M/M2T, we further demonstrate motion completion and prediction under text-free and text-conditioned settings. We also incorporate Residual VQ (RVQ) as the motion tokenizer to improve quantization fidelity, and adopt <strong>GRPO</strong> within the framework to enhance alignment and controllability. To the best of our knowledge, this is the first work to bring diffusion-LLMs to bidirectional text-motion modeling.</p>
+</section>
+
+<!-- Method -->
+<section id="method" class="card">
+  <h2>DiMo</h2>
+  <img src="assets/DiMo_arch.jpg" class="method-img">
+  <p>DiMo is a unified framework for bidirectional text-motion generation, inspired by the recent success of <em>discrete diffusion language models (dLLMs)</em>. Instead of sequentially autoregressing tokens, dLLMs apply random masking and iterative denoising, which naturally supports <strong>parallel inference</strong>. This allows the model to refine corrupted sequences in multiple steps, dynamically revise low-confidence predictions, and leverage bidirectional attention for stronger contextual reasoning.</p>
+</section>
+
+<!-- Tasks Section -->
+<section id="results" class="card">
+  <h2>Results</h2>
+  <p class="muted">Click tabs to switch tasks. Use the arrows to navigate video examples within each task</p>
+  <div id="taskTabs" class="tabs"></div>
+  <div id="taskPanels" class="tab-content"></div>
+</section>
+
+<!-- Video Modal -->
+<div id="videoModal" class="modal" aria-hidden="true">
+  <div class="modal-content">
+    <button id="modalClose" class="modal-close">✖</button>
+    <video id="modalVideo" controls autoplay></video>
+    <div id="modalCaption" class="caption"></div>
+  </div>
+</div>
+
+<!-- Comparison Section -->
+<section id="comparison" class="card">
+  <h2>Comparison with Other Methods</h2>
+  <p class="muted">Click tabs to switch tasks. Use the arrows to navigate video examples within each task</p>
+  <div class="tabs" id="comparison-tabs"></div>
+  <div id="comparisonPanels" class="tab-content"></div>
+</section>
+
+<!-- Citation -->
+<section id="citation" class="card">
+  <h2>Citation</h2>
+  <p class="muted">
+    If you find this work useful, please consider citing:
+  </p>
+  <pre class="citation-block"><code>@article{zhang2026dimo,
+  title   = {DiMo: Discrete Diffusion Modeling for Motion Generation and Understanding},
+  author  = {Zhang, Ning and Li, Zhengyu and Loh, Kwong Weng and Xu, Mingxi and Wang, Qi and 
+             Wen, Zhengyu and He, Xiaoyu and Zhao, Wei and Gong, Kehong and Zhang, Mingyuan},
+  journal = {arXiv preprint arXiv:XXXX.XXXXX},
+  year    = {2026}
+}</code></pre>
+</section>
+
+<script src="js/main.js"></script>
+</body>
+</html>

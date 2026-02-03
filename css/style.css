@@ -1,0 +1,324 @@
+/* =========================
+   颜色主题变量
+   ========================= */
+:root {
+  --primary-color: #4285f4;        /* 主色，蓝色 */
+  --primary-hover: #3367d6;        /* hover 状态 */
+  --secondary-color: #333;         /* 说明文字/灰色文字 */
+  --border-color: #ddd;            /* 卡片边框 */
+  --background-color: #f8f8f8;     /* 页面背景 */
+  --card-bg: #fff;                 /* 卡片背景 */
+  --modal-bg: rgba(0,0,0,0.7);     /* modal 遮罩 */
+  --modal-content-bg: #fff;        /* modal 内容背景 */
+}
+
+/* =========================
+   页面基础样式
+   ========================= */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 30px;
+  background: var(--background-color);
+  color: var(--secondary-color);
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2rem;      /* 原来可能是 1.5rem，调大 */
+  font-family: 'Poppins', 'Noto Sans', sans-serif; /* 清晰现代体 */
+  font-weight: 500;
+  margin-bottom: 16px;
+  /* text-align: center;   如果需要居中 */
+  /* color: #222;          深一点，更清晰 */
+}
+
+.muted {
+  color: var(--secondary-color);
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1100px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   标题与作者
+   ========================= */
+#title-authors h1 {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.authors {
+  text-align: center;
+  font-size: 1.1em;
+  color: var(--secondary-color);
+}
+
+/* =========================
+   Abstract 样式
+   ========================= */
+#abstract p {
+  font-size: 1.1em;      /* 放大字体 */
+  line-height: 1.8;      /* 增加行高 */
+  letter-spacing: 0.5px; /* 可选，稍微增加字间距 */
+  margin-top: 10px;
+  color: var(--secondary-color);
+  text-align: justify;    /* 两端对齐 */
+}
+
+/* =========================
+   图片
+   ========================= */
+.teaser-img, .method-img {
+  display: block;
+  width: 90%;
+  border-radius: 10px;
+  margin: 0 auto;
+  height: auto;
+  /*box-shadow: 0 4px 12px rgba(0,0,0,0.1);*/
+}
+
+/* =========================
+   Tabs
+   ========================= */
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.tab {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  background: #f0f0f0;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 1rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tab.active {
+  background: var(--primary-color);
+  color: #fff;
+  
+}
+
+.tab:hover {
+  background: var(--primary-hover);
+  color: #fff;
+  /* transform: scale(1.05); */
+}
+
+/* =========================
+   Panel
+   ========================= */
+.tab-content .panel {
+  display: none;
+}
+
+.tab-content .panel.active {
+  display: block;
+}
+
+/* =========================
+   Slider
+   ========================= */
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  position: relative;
+}
+
+.slide-btn {
+  font-size: 20px;
+  background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s;
+}
+
+.slide-btn:hover {
+  background: rgba(255,255,255,1);
+}
+
+.slides {
+  width: 720px;
+  max-width: 100%;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.slides video {
+  display: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.slides video.active {
+  display: block;
+}
+
+/* =========================
+   Modal
+   ========================= */
+.modal {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: var(--modal-bg);
+  opacity:0;
+  pointer-events:none;
+  transition:0.3s;
+}
+
+.modal[aria-hidden="false"] {
+  opacity:1;
+  pointer-events:auto;
+}
+
+.modal-content {
+  position: relative;
+  background: var(--modal-content-bg);
+  padding: 15px;
+  border-radius: 12px;
+  max-width: 90%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.modal-close {
+  position:absolute;
+  top:10px;
+  right:10px;
+  border:none;
+  background:none;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.modal video {
+  width: 100%;
+  max-height: 80vh;
+  border-radius: 10px;
+}
+
+.caption {
+  margin-top: 8px;
+  text-align:center;
+  font-size:14px;
+  color: var(--secondary-color);
+}
+
+/* =========================
+   响应式优化
+   ========================= */
+@media(max-width:768px){
+  .slides { height: 250px; }
+  .slide-btn { font-size:16px; padding:6px 10px; }
+}
+
+@media(max-width:480px){
+  .card { padding: 15px; }
+  h1 { font-size:2em; }
+  .slides { height:180px; }
+}
+
+/* =========================
+   Links
+   ========================= */
+.paper-links {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.paper-link {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #ba3014;
+  text-decoration: none;
+  border: 1px solid rgba(138, 34, 20, 0.35);
+  border-radius: 999px; /* 胶囊 */
+  transition: all 0.2s ease;
+  background: rgba(124,45,18,0.04);
+}
+
+.paper-link:hover {
+  color: #9A3412;
+  border-color: rgba(124,45,18,0.5);
+  background: rgba(124,45,18,0.08);
+}
+
+
+/* =========================
+   Citation
+   ========================= */
+.citation-block {
+  margin-top: 12px;
+  padding: 14px 16px;
+  background: #FAFAF9;          /* 暖浅灰，与你的 arXiv 框一致 */
+  border: 1px solid #E7E5E4;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  overflow-x: auto;
+}
+
+.citation-block code {
+  font-family: "Menlo", "Monaco", "Consolas", monospace;
+  color: #292524;
+}
+
+/* =========================
+   authors
+   ========================= */
+.authors {
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #141b2b;
+  text-align: center;
+}
+
+.affiliations {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: #6B7280;
+  text-align: center;
+}
